@@ -14,6 +14,9 @@
 //	Last Edited: 11/19/2024
 //
 
+#ifndef WEAPON_H
+#define WEAPON_H
+
 #include "item.h"
 
 class Weapon : public Item {
@@ -26,3 +29,5 @@ public:
 	// Getters
 	int GetDamage();
 };
+
+#endif

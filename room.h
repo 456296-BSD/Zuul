@@ -9,19 +9,23 @@
 //
 // 	By: Sawyer Scheve
 //
-// 	Last Edited: 11/19/2024
+// 	Last Edited: 11/20/2024
 //
+
+#ifndef ROOM_H
+#define ROOM_H
 
 #include <vector>
 #include <iostream>
 
 #include "item.h"
+#include "enemy.h"
 
 class Room {
 private:
 	std::vector<char*> exits;
 	std::vector<Item*> items;
-	// std::vector<Enemy*> enemies;
+	std::vector<Enemy*> enemies;
 	char* description;
 public:
 	// Constructor
@@ -29,5 +33,7 @@ public:
 	void Describe(); // Describes the room (Exits, Items, Enemies, Etc)
 	void AddExit(char* e); // Add an exit
 	void AddItem(Item* i); // Add an item
-	// void AddEnemy(char* e); // Add an enemy
+	void AddEnemy(Enemy* e); // Add an enemy
 };
+
+#endif

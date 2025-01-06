@@ -10,13 +10,25 @@
 //
 //	By: Sawyer Scheve
 //
-//	Last Edited: 11/20/2024
+//	Last Edited: 1/2/2024
 //
 
 #include "room.h"
 
 Room::Room(char* d) {
 	this->description = d;
+}
+
+void Room::AddExit(char* e) {
+	exits.push_back(e);
+}
+
+void Room::AddItem(Item* i) {
+	items.push_back(i);
+}
+
+void Room::AddEnemy(Enemy* e) {
+	enemies.push_back(e);
 }
 
 void Room::Describe() {
@@ -41,14 +53,12 @@ void Room::Describe() {
 	std::cout << std::endl;
 }
 
-void Room::AddExit(char* e) {
-	exits.push_back(e);
-}
-
-void Room::AddItem(Item* i) {
-	items.push_back(i);
-}
-
-void Room::AddEnemy(Enemy* e) {
-	enemies.push_back(e);
+void Room::CheckDead() {
+	std::vector<Enemy*>::iterator i;
+	for(i = enemies.begin(); i != enemies.end(); i++) {
+		if((*i)->GetIsDead()) {
+			enemies.erase(i);
+			i--;
+		}
+	}
 }

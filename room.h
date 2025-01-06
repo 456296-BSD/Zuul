@@ -9,11 +9,13 @@
 //
 // 	By: Sawyer Scheve
 //
-// 	Last Edited: 11/20/2024
+// 	Last Edited: 11/21/2024
 //
 
 #ifndef ROOM_H
 #define ROOM_H
+
+class Enemy;
 
 #include <vector>
 #include <iostream>
@@ -30,10 +32,15 @@ private:
 public:
 	// Constructor
 	Room(char* d);
-	void Describe(); // Describes the room (Exits, Items, Enemies, Etc)
-	void AddExit(char* e); // Add an exit
-	void AddItem(Item* i); // Add an item
-	void AddEnemy(Enemy* e); // Add an enemy
+	
+	// Customization
+	void AddExit(char* e);
+	void AddItem(Item* i);
+	void AddEnemy(Enemy* e);
+
+	// Methods
+	void Describe();
+	void CheckDead();
 };
 
 #endif

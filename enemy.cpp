@@ -10,7 +10,7 @@
 //
 //	By: Sawyer Scheve
 //
-//	Last Edited: 11/20/2024
+//	Last Edited: 11/21/2024
 //
 
 #include "enemy.h"
@@ -23,7 +23,6 @@ Enemy::Enemy(char* n, Weapon* w, int h) {
 
 Enemy::~Enemy() {
 	delete name;
-	delete weapon;
 }
 
 char* Enemy::GetName() {
@@ -34,7 +33,11 @@ int Enemy::GetHealth() {
 	return health;
 }
 
-void Death(Room* r) {
+bool Enemy::GetIsDead() {
+	return isDead;
+}
+
+void Enemy::Death(Room* r) {
+	isDead = true;
 	r->AddItem(weapon);
-	delete this; // Doesn't Work
 }

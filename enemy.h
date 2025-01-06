@@ -10,11 +10,13 @@
 //
 //	By: Sawyer Scheve
 //
-//	Last Edited: 11/20/2024
+//	Last Edited: 11/21/2024
 //
 
 #ifndef ENEMY_H
 #define ENEMY_H
+
+class Room;
 
 #include "weapon.h"
 #include "room.h"
@@ -24,6 +26,7 @@ private:
 	char* name;
 	Weapon* weapon;
 	int health;
+	bool isDead = false;
 public:
 	// Constructor + Destructor
 	Enemy(char* n, Weapon* w, int h);
@@ -32,9 +35,10 @@ public:
 	// Getters
 	char* GetName();
 	int GetHealth();
+	bool GetIsDead();
 
-	// Method
-	void Death();	
+	// Methods
+	void Death(Room* r);
 };
 
 #endif
